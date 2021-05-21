@@ -14,7 +14,6 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
@@ -46,11 +45,15 @@ let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-emmet', 'coc-es
 let mapleader = " "
 
 nnoremap <C-p> :Files<CR>
-nnoremap <C-g> :GFiles<Cr>
+nnoremap <C-f> :GFiles<Cr>
+nnoremap <C-F> :Ag<Cr>
 
 noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
-noremap <C-q> :quitall<CR>
+noremap <C-q> :quitall!<CR>
+nnoremap <tab>   :tabnext<CR>
+noremap qq : :quit!<CR>
+
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
@@ -63,7 +66,6 @@ nmap <leader>tc <Plug>(coc-implementation)
 nmap <leader>tr <Plug>(coc-references)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 function! s:show_documentation()
@@ -86,8 +88,8 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 hi tsxTagName guifg=#E06C75
 hi tsxComponentName guifg=#E06C75
 hi tsxCloseComponentName guifg=#E06C75
-
 " orange
+"
 hi tsxCloseString guifg=#F99575
 hi tsxCloseTag guifg=#F99575
 hi tsxCloseTagName guifg=#F99575
@@ -96,8 +98,4 @@ hi tsxEqual guifg=#F99575
 
 " yellow
 hi tsxAttrib guifg=#F8BD7F cterm=italic
-
-let g:airline#extensions#coc#enabled = 1
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
-autocmd User CocGitStatusChange {command}
 nnoremap <leader>g :<C-u>call gitblame#echo()<CR>
