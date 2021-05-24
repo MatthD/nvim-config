@@ -28,6 +28,7 @@ Plug 'herrbischoff/cobalt2.vim'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'zivyangll/git-blame.vim'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 call plug#end()
 
 
@@ -40,7 +41,7 @@ colorscheme cobalt2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='cobalt2'
 "let g:airline_statusline_ontop=1
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-emmet', 'coc-eslint', 'coc-prettier', 'coc-git' ]
+let g:coc_global_extensions = [ 'coc-svelte', 'coc-tsserver', 'coc-json', 'coc-emmet', 'coc-eslint', 'coc-prettier', 'coc-git' ]
 
 let mapleader = " "
 
@@ -49,10 +50,14 @@ nnoremap <C-f> :GFiles<Cr>
 nnoremap <C-F> :Ag<Cr>
 
 noremap <C-h> <C-w>h
+noremap <C-k> <C-w>k
+noremap <C-j> <C-w>j
 noremap <C-l> <C-w>l
 noremap <C-q> :quitall!<CR>
 nnoremap <tab>   :tabnext<CR>
 noremap qq : :quit!<CR>
+nmap <S-Up> :m -2<CR>
+nmap <S-Down> :m +1<CR>
 
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
