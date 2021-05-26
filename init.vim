@@ -29,14 +29,27 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'zivyangll/git-blame.vim'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'wakatime/vim-wakatime' " only for work usage !!!
+Plug 'tpope/vim-fugitive'
+Plug 'AGhost-7/critiq.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 
-set termguicolors     " enable true colors support
-let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme cobalt2
+"set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+if exists('+termguicolors')
+      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+      set termguicolors
+    endif
+"set background=light
+colorscheme cobalt2 
+
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='cobalt2'
@@ -101,6 +114,14 @@ hi tsxCloseTagName guifg=#F99575
 hi tsxAttributeBraces guifg=#F99575
 hi tsxEqual guifg=#F99575
 
-" yellow
 hi tsxAttrib guifg=#F8BD7F cterm=italic
 nnoremap <leader>g :<C-u>call gitblame#echo()<CR>
+
+hi! diffAdded ctermfg=15 ctermbg=64 cterm=bold guifg=#59b319 guibg=NONE gui=NONE
+hi! diffRemoved ctermfg=88 ctermbg=NONE cterm=NONE guifg=#e44d3f guibg=NONE gui=NONE 
+hi! diffChanged ctermfg=15 ctermbg=23 cterm=NONE guifg=#ffffff guibg=#1c4068 gui=NONE
+
+hi! diffFile ctermfg=214 ctermbg=NONE cterm=NONE guifg=#000000 guibg=#d8c42c gui=bold
+hi! diffNewFile ctermfg=220 ctermbg=NONE cterm=NONE guifg=#ffffff guibg=#59b319 gui=bold
+
+hi! diffLine ctermfg=33 ctermbg=NONE cterm=NONE guifg=#0088ff guibg=NONE gui=italic
