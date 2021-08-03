@@ -31,7 +31,6 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'zivyangll/git-blame.vim'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
-"Plug 'wakatime/vim-wakatime' " only for work usage !!!
 Plug 'tpope/vim-fugitive'
 Plug 'AGhost-7/critiq.vim'
 Plug 'sheerun/vim-polyglot'
@@ -42,7 +41,6 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Yggdroot/indentLine'
-"Plug 'valloric/youcompleteme'
 Plug 'andymass/vim-matchup'
 call plug#end()
 
@@ -61,9 +59,9 @@ let NERDTreeShowHidden=1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
 " when running at every change you may want to disable quickfix
-let g:prettier#quickfix_enabled = 0
+"let g:prettier#quickfix_enabled = 0
 
-autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.svelte PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.svelte PrettierAsync
 
 if exists('+termguicolors')
       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -160,3 +158,5 @@ highlight SpecialKey ctermfg=green ctermbg=none guifg=gray guibg=none
 highlight NonText ctermfg=green ctermbg=none guifg=gray guibg=none
 
 hi Conceal ctermfg=109 ctermbg=none guifg=109 guibg=none
+
+set rtp+=~/tabnine-vim
