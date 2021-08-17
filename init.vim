@@ -42,6 +42,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'andymass/vim-matchup'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 
@@ -71,6 +73,8 @@ if exists('+termguicolors')
 "set background=light
 colorscheme cobalt2 
 
+" sudo write
+cmap :W :SudaWrite
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='cobalt2'
